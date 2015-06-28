@@ -1,0 +1,15 @@
+/**
+*
+* Global
+*
+**/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, button {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+

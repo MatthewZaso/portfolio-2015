@@ -1,0 +1,234 @@
+/**
+*
+* Utils
+*
+**/
+
+/*==========  VARIABLES  ==========*/
+
+  // Extra small screen / phone
+  $screen-xs:                  480px !default;
+  $screen-xs-min:              $screen-xs !default;
+  $screen-phone:               $screen-xs-min !default;
+
+  // Small screen / tablet
+  $screen-sm:                  768px !default;
+  $screen-sm-min:              $screen-sm !default;
+  $screen-tablet:              $screen-sm-min !default;
+
+  // Medium screen / desktop
+  $screen-md:                  992px !default;
+  $screen-md-min:              $screen-md !default;
+  $screen-desktop:             $screen-md-min !default;
+
+  // Large screen / wide desktop
+  $screen-lg:                  1200px !default;
+  $screen-lg-min:              $screen-lg !default;
+  $screen-lg-desktop:          $screen-lg-min !default;
+
+  // So media queries don't overlap when required, provide a maximum
+  $screen-xs-max:              ($screen-sm-min - 1) !default;
+  $screen-sm-max:              ($screen-md-min - 1) !default;
+  $screen-md-max:              ($screen-lg-min - 1) !default;
+
+  //== Grid system
+  //
+  //## Define your custom responsive grid.
+
+  //** Number of columns in the grid.
+  $grid-columns:              12 !default;
+  //** Padding between columns. Gets divided in half for the left and right.
+  $grid-gutter-width:         30px !default;
+  // Navbar collapse
+  //** Point at which the navbar becomes uncollapsed.
+  $grid-float-breakpoint:     $screen-sm-min !default;
+  //** Point at which the navbar begins collapsing.
+  $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+  //== Container sizes
+  //
+  //## Define the maximum width of `.container` for different screen sizes.
+
+  // Small screen / tablet
+  $container-tablet:             ((720px + $grid-gutter-width)) !default;
+  //** For `$screen-sm-min` and up.
+  $container-sm:                 $container-tablet !default;
+
+  // Medium screen / desktop
+  $container-desktop:            ((940px + $grid-gutter-width)) !default;
+  //** For `$screen-md-min` and up.
+  $container-md:                 $container-desktop !default;
+
+  // Large screen / wide desktop
+  $container-large-desktop:      ((1140px + $grid-gutter-width)) !default;
+  //** For `$screen-lg-min` and up.
+  $container-lg:                 $container-large-desktop !default;
+
+  // Defining breakpoints
+  $medium: 620px !default;
+  $wide: 800px !default;
+  $huge: 1600px !default;
+  $mediumContainer: 688px !default;
+  $wideContainer: 864px !default;
+
+  // Defining grid sizes
+  $mediumColCount: 3 !default;
+  $mediumColWidth: 30.3% !default;
+  $mediumGutterWidth: 4.5% !default;
+  $wideColCount: 4 !default;
+  $wideColWidth: 22.2% !default;
+  $wideGutterWidth: 3.7% !default;
+
+  // Defining colors
+  $colorBlue: #3372df !default;
+  $colorBlueSecondary: lighten($colorBlue, 30%) !default;
+  $colorGreen: #0f9d58 !default;
+  $colorGreenSecondary: lighten($colorGreen, 30%) !default;
+  $colorRed: #cb4437 !default;
+  $colorRedSecondary: lighten($colorRed, 30%) !default;
+  $colorYellow: #f4b400 !default;
+  $colorYellowSecondary: lighten($colorYellow, 20%) !default;
+  $colorWhite: #fff !default;
+  $colorBlack: #000 !default;
+
+  $colorLinkedin: #007ab8 !default;
+  $colorGooglePlus: #dc472e !default;
+  $colorTwitter: #39a0ce !default;
+  $colorGithub: #323131 !default;
+  $colorInstagram: #2e5e85 !default;
+  $colorEmail: #6c6c6b !default;
+
+  // Defining text colors
+  $colorText: #404040 !default;
+
+  // Defining font family
+  $fontDefault: Helvetica, Arial, sans-serif !default;
+  $fontHighlight: "Roboto Condensed", Helvetica, sans-serif !default;
+  $fontIcon: "icons" !default;
+
+  // Defining font sizes
+  $fontSmall: 13px !default;
+  $fontBase: 16px  !default;
+  $fontMedium: 20px !default;
+  $fontLarge: 26px !default;
+  $fontXLarge: 42px !default;
+  $fontXXLarge: 68px !default;
+  $fontHuge: 110px !default;
+
+  // Defining baseline line height
+  $lineHeight: 26px !default;
+
+  // Defining animation easings
+  $animationEasing: cubic-bezier(0.455, 0.030, 0.515, 0.955) !default;
+
+  // Defining sidebar stuff
+  $sidebarWidth: 280px !default;
+
+  $grid-ratio-name: 'aspect';
+  $grid-ratio-inner-name: 'aspect-inner';
+  $grid-ratios: (
+    '16x9': (16, 9),
+    '9x16': (9, 16),
+    '4x3': (4, 3),
+    '3x4': (3, 4),
+    '3x2': (3, 2),
+    '2x3': (2, 3),
+    '1x1': (1, 1)
+  );
+
+/*==========  FUNCTIONS  ==========*/
+
+  @function leading($size, $context: $lineHeight) {
+    @return  $context / $size + em;
+  }
+
+
+/*==========  MIXINS  ==========*/
+
+  @mixin clearfix() {
+    &:before,
+    &:after {
+      content: " "; // 1
+      display: table; // 2
+    }
+    &:after {
+      clear: both;
+    }
+  }
+
+  @mixin keep-aspect() {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 100%;
+  }
+
+  @mixin aspect($width, $height) {
+    padding-bottom: percentage($height / $width);
+  }
+
+  @mixin no-aspect() {
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  // Mixins simply to store CSS rules
+  @mixin rule--small {
+    font-size: $fontSmall;
+    line-height: 2.0000em; /* 26px */
+    padding-top: 2.0000em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--base {
+    font-size: $fontBase;
+    line-height: 1.6250em; /* 26px */
+    padding-top: 1.6250em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--medium {
+    font-size: $fontMedium;
+    font-weight: 300;
+    line-height: 1.3000em; /* 26px */
+    padding-top: 1.3000em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--large {
+    font-family: $fontHighlight;
+    font-size: $fontLarge;
+    font-weight: 300;
+    line-height: 1.0000em; /* 26px */
+    padding-top: 1.0000em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--xlarge {
+    font-family: $fontHighlight;
+    font-size: $fontXLarge;
+    font-weight: 300;
+    line-height: 1.2381em; /* 52px */
+    padding-top: 0.6190em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--xxlarge {
+    font-family: $fontHighlight;
+    font-size: $fontXXLarge;
+    font-weight: 300;
+    line-height: 1.1471em; /* 78px */
+    padding-top: 0.3824em;
+    padding-bottom: 0;
+  }
+
+  @mixin rule--huge {
+    font-family: $fontHighlight;
+    font-size: $fontHuge;
+    font-weight: 300;
+    line-height: 1.19em; /* 130px */
+    padding-top: 0.2364em;
+    padding-bottom: 0;
+  }
