@@ -1,1 +1,1 @@
-web: npm install && gulp && gulp serve:dist
+web: gulp && gulp serve:dist
