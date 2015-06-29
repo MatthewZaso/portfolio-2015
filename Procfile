@@ -1,1 +1,1 @@
-web: gulp && gulp serve:dist
+web: gulp serveprod
