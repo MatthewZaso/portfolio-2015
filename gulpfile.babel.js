@@ -177,9 +177,9 @@ gulp.task('webserver', ['default'], () => {
   gulp.src('app')
     .pipe($.webserver({
       livereload: false,
-      directoryListing: true,
+      host: '0.0.0.0', 
       port: process.env.PORT || 8888,
-      open: true
+      open: false
     }));
 });
 
