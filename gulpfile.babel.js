@@ -174,7 +174,7 @@ gulp.task('serve', ['styles'], () => {
 });
 
 gulp.task('webserver', ['default'], () => {
-  gulp.src('app')
+  gulp.src('dist')
     .pipe($.webserver({
       livereload: false,
       host: '0.0.0.0', 
