@@ -173,12 +173,14 @@ gulp.task('serve', ['styles'], () => {
   gulp.watch(['app/images/**/*'], reload);
 });
 
-gulp.task('serveprod', function() {
-  connect.server({
-    root: ${rootDir},
-    port: process.env.PORT || 8888,
-    livereload: false
-  });
+gulp.task('webserver', ['default'], () => {
+  gulp.src('app')
+    .pipe($.webserver({
+      livereload: false,
+      directoryListing: true,
+      port: process.env.PORT || 8888,
+      open: true
+    }));
 });
 
 // Build and serve the output from the dist build
