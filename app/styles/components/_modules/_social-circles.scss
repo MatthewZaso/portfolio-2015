@@ -9,6 +9,7 @@
   height: 100%;
   width: 100%;
   perspective: 1000;
+  margin-bottom: 20px;
 
   &:hover .flip-container, 
   &.hover .flip-container {
@@ -25,6 +26,7 @@
 
   .handle {
     color: $colorWhite;
+    font-size: 14px;
 
     &:hover {
       text-decoration: underline;
@@ -57,4 +59,12 @@
   &.github .back { background-color: $colorGithub; }
   &.instagram .back { background-color: $colorInstagram; }
   &.email .back { background-color: $colorEmail; }
+}
+
+@include breakpoint(lg) {
+  .social-circle {
+    .handle {
+      font-size: 16px;
+    }
+  }
 }
