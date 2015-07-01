@@ -5,20 +5,9 @@
 **/
 
 /*==========  ASPECT BOXES  ==========*/
+
 .#{$grid-ratio-name} {
   @include keep-aspect();
-}
-
-@mixin grid-ratios($class: "") {
-  @if $class != "" {
-    $class: "-" + $class;
-  }
-
-  @each $name, $list in $grid-ratios {
-    .#{$grid-ratio-name}#{$class}-#{$name} {
-      padding-bottom: percentage(nth($list, 2) / nth($list, 1));
-    }
-  }
 }
 
 @include grid-ratios();
@@ -43,7 +32,6 @@
 .color--red-secondary { color: $colorRedSecondary; }
 .color--green-secondary { color: $colorGreenSecondary; }
 .color--yellow-secondary { color: $colorYellowSecondary; }
-
 
 /*==========  GENERIC  ==========*/
 

@@ -35,16 +35,26 @@
   //
   //## Define your custom responsive grid.
 
-  //** Number of columns in the grid.
-  $grid-columns:              12 !default;
-  //** Padding between columns. Gets divided in half for the left and right.
-  $grid-gutter-width:         30px !default;
-  // Navbar collapse
-  //** Point at which the navbar becomes uncollapsed.
-  $grid-float-breakpoint:     $screen-sm-min !default;
-  //** Point at which the navbar begins collapsing.
-  $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+  //$breakpoints: (xs: 0px, lg: 1016px)
+  $breakpoints: (
+    xs: 0px,
+    lg: 768px
+  );
+  // Number of columns in the grid.
+  $grid-columns: 12;
 
+  // Padding between columns. Gets divided in half for the left and right.
+  $grid-gutter-width: 16px;
+  $grid-max-width: 960px;
+  $grid-container: "grid-container";
+  $grid-row: "grid-row";
+  $grid-prefix: "col";
+  $grid-margin-bottom-name: "module";
+  $grid-sizes: xs, lg;
+  $grid-ratio-name: "aspect";
+  $grid-ratio-inner-name: "aspect-inner";
+
+  $grid-container-padding: (xs: 3.25%, lg: 3.5%);
 
   //== Container sizes
   //
@@ -143,17 +153,58 @@
     @return  $context / $size + em;
   }
 
+  // strip units from any number. "50px" returns 50.
+  @function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
 
 /*==========  MIXINS  ==========*/
 
-  @mixin clearfix() {
-    &:before,
-    &:after {
-      content: " "; // 1
-      display: table; // 2
+  // @param {string} bp Breakpoint value. One of `xs, lg`.
+  // @param {boolean} isMaxWidth By default, the media queries are mobile first,
+  //     so they use `min-width: __px`. By passing `true`, the mixin will subtract
+  //     one pixel from the breakpoint value and make it `max-width: __px`.
+  //
+  @mixin breakpoint($bp, $isMaxWidth: false) {
+    $breakpoint: map-get($breakpoints, $bp);
+    $media: if($isMaxWidth, 'max-width', 'min-width');
+
+    @if $isMaxWidth {
+      $breakpoint: $breakpoint - 1px;
     }
-    &:after {
+
+    @if map-has-key($breakpoints, $bp) {
+      @media ($media: $breakpoint) {
+        @content;
+      }
+    } @else {
+      @warn "#{$bp} not recognized. Valid breakpoints: #{map-keys($breakpoints)}";
+    }
+  }
+
+  // Clearfix
+  // For clearing floats h5bp.com/q
+  @mixin clearfix {
+    &::before,
+    &::after {
+      display: table;
+      content: "";
+    }
+    &::after {
       clear: both;
+    }
+  }
+
+  @mixin grid-ratios($class: "") {
+    @if $class != "" {
+      $class: "-" + $class;
+    }
+
+    @each $name, $list in $grid-ratios {
+      .#{$grid-ratio-name}#{$class}-#{$name} {
+        padding-bottom: percentage(nth($list, 2) / nth($list, 1));
+      }
     }
   }
 
