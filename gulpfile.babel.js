@@ -119,10 +119,10 @@ gulp.task('scripts', () => {
 });
 
 // Scan your HTML for assets & optimize them
-gulp.task('html', () => {
+gulp.task('html', ['views'], () => {
   const assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-  return gulp.src('app/**/*.html')
+  return gulp.src(['app/*.html', '.tmp/*.html'])
     .pipe(assets)
     // Remove any unused CSS
     // Note: If not using the Style Guide, you can delete it from
@@ -146,16 +146,24 @@ gulp.task('html', () => {
 
     // Minify any HTML
     .pipe($.if('*.html', $.minifyHtml()))
-    // Output files
+    // Output file
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'html'}));
+});
+
+// Render jade templates
+gulp.task('views', function () {
+  return gulp.src('app/*.jade')
+    .pipe($.jade({pretty: true}))
+    .pipe(gulp.dest('.tmp'))
+    .pipe(reload({stream: true}));
 });
 
 // Clean output directory
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['styles'], () => {
+gulp.task('serve', ['views', 'styles'], () => {
   browserSync({
     notify: false,
     // Customize the BrowserSync console logging prefix
@@ -167,7 +175,7 @@ gulp.task('serve', ['styles'], () => {
     server: ['.tmp', 'app']
   });
 
-  gulp.watch(['app/**/*.html'], reload);
+  gulp.watch('app/**/*.jade', ['views', reload]);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);

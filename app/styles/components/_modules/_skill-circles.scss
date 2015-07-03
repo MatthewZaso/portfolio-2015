@@ -1,0 +1,43 @@
+/**
+*
+* Skill Circles
+*
+**/
+
+.skill-circles {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .circle--mastery { background-color: #6dbcdb; }
+  .circle--intermediate { background-color: #0cb89e; }
+  .circle--beginner { background-color: #5b6268; }
+
+  .circle--javascript {
+    width: 25.8%;
+    left: 23.4%;
+    top: 31.5%;
+  }
+
+  .text-container {
+    color: white;
+    font-size: 25px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.skill-circles-aspect-wrapper.custom-aspect {
+  padding-bottom: 46%;
+}
+
+@include breakpoint(lg) {
+  .skill-circles {
+
+  }
+}
