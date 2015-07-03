@@ -1,5 +1,6 @@
 doctype html
 include templates/skill-circle
+include templates/social-circle
 
 html(lang='')
   head
@@ -50,53 +51,18 @@ html(lang='')
     .grid-container(style='margin-top:120px;')
       .grid-row
         .col-xs-2.col-lg-2
-          .social-circle.linkedin
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/linkedin-circle.png')
-                  a.back.table-center-wrap(href='//www.linkedin.com/pub/matthew-zaso/26/8b6/2a2')
-                    span.handle.table-center MatthewZaso
+          +social-circle("linkedin", "images/social/linkedin-circle.png", "//www.linkedin.com/pub/matthew-zaso/26/8b6/2a2", "MatthewZaso")
         .col-xs-2.col-lg-2
-          .social-circle.google-plus
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/google-plus-circle.png')
-                  a.back.table-center-wrap(href='//plus.google.com/111870528745904620636')
-                    span.handle.table-center +MatthewZaso
+          +social-circle("google-plus", "images/social/google-plus-circle.png", "//plus.google.com/111870528745904620636", "+MatthewZaso")
         .col-xs-2.col-lg-2
-          .social-circle.twitter
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/twitter-circle.png')
-                  a.back.table-center-wrap(href='//twitter.com/MatthewZaso')
-                    span.handle.table-center @MatthewZaso
+          +social-circle("twitter", "images/social/twitter-circle.png", "//twitter.com/MatthewZaso", "@MatthewZaso")
         .col-xs-2.col-lg-2
-          .social-circle.github
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/github-circle.png')
-                  a.back.table-center-wrap(href='//github.com/MatthewZaso')
-                    span.handle.table-center MatthewZaso
+          +social-circle("github", "images/social/github-circle.png", "//github.com/MatthewZaso", "MatthewZaso")
         .col-xs-2.col-lg-2
-          .social-circle.instagram
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/instagram-circle.png')
-                  a.back.table-center-wrap(href='//instagram.com/matthewzaso/')
-                    span.handle.table-center MatthewZaso
+          +social-circle("instagram", "images/social/instagram-circle.png", "//instagram.com/matthewzaso/", "MatthewZaso")
         .col-xs-2.col-lg-2
-          .social-circle.email
-            .aspect.aspect-1x1
-              .aspect-inner
-                .flip-container
-                  img.front(src='images/social/email-circle.png')
-                  a.back.table-center-wrap(href='//www.mattzaso.com/contact.html')
-                    span.handle.table-center MatthewZaso
+          +social-circle("email", "images/social/email-circle.png", "//www.mattzaso.com/contact.html", "Email me!")
+
     // build:js(app/) ../../scripts/main.min.js
     // endbuild
     // Google Analytics: change UA-XXXXX-X to be your site's ID
