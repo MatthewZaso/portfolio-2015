@@ -91,16 +91,14 @@
   $wideGutterWidth: 3.7% !default;
 
   // Defining colors
-  $colorBlue: #3372df !default;
-  $colorBlueSecondary: lighten($colorBlue, 30%) !default;
-  $colorGreen: #0f9d58 !default;
-  $colorGreenSecondary: lighten($colorGreen, 30%) !default;
-  $colorRed: #cb4437 !default;
-  $colorRedSecondary: lighten($colorRed, 30%) !default;
-  $colorYellow: #f4b400 !default;
-  $colorYellowSecondary: lighten($colorYellow, 20%) !default;
   $colorWhite: #fff !default;
   $colorBlack: #000 !default;
+  $colorBlue: #6dbcdb !default;
+  $colorTeal: #0cb89e !default;
+  $colorLightGray: #d7dadb !default;
+  $colorDarkGray: #5b6268 !default;
+  $colorRed: #fc4349 !default;
+  $colorOffwhite: #f0f0f0 !default;
 
   $colorLinkedin: #007ab8 !default;
   $colorGooglePlus: #dc472e !default;

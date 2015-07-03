@@ -24,14 +24,15 @@
 
 /*==========  COLORS  ==========*/
 
+.color--white { color: $colorWhite; }
+.color--black { color: $colorBlack; }
 .color--blue { color: $colorBlue; }
+.color--teal { color: $colorTeal; }
+.color--light-gray { color: $colorLightGray; }
+.color--dark-gray { color: $colorDarkGray; }
 .color--red { color: $colorRed; }
-.color--green { color: $colorGreen; }
-.color--yellow { color: $colorYellow; }
-.color--blue-secondary { color: $colorBlueSecondary; }
-.color--red-secondary { color: $colorRedSecondary; }
-.color--green-secondary { color: $colorGreenSecondary; }
-.color--yellow-secondary { color: $colorYellowSecondary; }
+.color--offwhite { color: $colorOffwhite; }
+
 
 /*==========  GENERIC  ==========*/
 

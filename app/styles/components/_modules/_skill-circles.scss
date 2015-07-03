@@ -14,10 +14,10 @@
     border-radius: 50%;
   }
 
-  .circle--level-mastery { background-color: #6dbcdb; }
-  .circle--level-intermediate { background-color: #0cb89e; }
+  .circle--level-mastery { background-color: $colorBlue; }
+  .circle--level-intermediate { background-color: $colorTeal; }
   .circle--level-intermediate .text-container { font-size: 20px; }
-  .circle--level-beginner { background-color: #5b6268; }
+  .circle--level-beginner { background-color: $colorDarkGray; }
   .circle--level-beginner .text-container { font-size: 18px; }
 
   .text-container {
