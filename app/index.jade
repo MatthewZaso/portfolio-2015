@@ -1,4 +1,6 @@
 doctype html
+include templates/skill-circle
+
 html(lang='')
   head
     meta(charset='utf-8')
@@ -30,11 +32,19 @@ html(lang='')
           .skill-circles-aspect-wrapper.aspect.custom-aspect
             .aspect-inner
               .skill-circles
-                .circle.circle--javascript.circle--mastery
-                  .aspect.aspect-1x1
-                    .aspect-inner
-                      .text-container.table-center-wrap
-                        span.table-center JavaScript
+                +skill-circle("js", "JavaScript", "mastery")
+                +skill-circle("html", "HTML", "mastery")
+                +skill-circle("sass-less", "SASS/LESS", "mastery")
+                +skill-circle("css", "CSS", "mastery")
+
+                +skill-circle("java", "JAVA/Android", "intermediate")
+                +skill-circle("ios", "iOS/Obj-c/Swift", "intermediate")
+                +skill-circle("tasks", "Gulp/Grunt", "intermediate")
+
+                +skill-circle("angular", "AngularJS", "beginner")
+                +skill-circle("mysql", "MySQL", "beginner")
+                +skill-circle("nodejs", "Node.js", "beginner")
+
     .grid-container(style='margin-top:120px;')
       .grid-row
         .col-xs-2.col-lg-2
