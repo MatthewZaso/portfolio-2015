@@ -27,7 +27,26 @@ html(lang='')
     // Page styles
     link(rel='stylesheet', href='styles/main.css')
   body
+    .grid-container.header
+      .grid-row
+        .col-lg-12.col-xs-6
+          h1.header-title="Matt Zaso"
+          h2.header-subtitle="Developer"
+
     .grid-container(style='margin-top:120px;')
+      .grid-row
+        .col-lg-12.col-xs-6.skill-circles-header
+          .filter.filter--level-mastery
+            .circle
+            p.text="Mastery"
+          .filter.filter--level-intermediate
+            .circle
+            p.text="Intermediate"
+          .filter.filter--level-beginner
+            .circle
+            p.text="Beginner"
+
+    .grid-container(style='margin-top:50px;')
       .grid-row
         .col-lg-12.col-xs-6
           .skill-circles-aspect-wrapper.aspect.custom-aspect
@@ -63,7 +82,10 @@ html(lang='')
         .col-xs-2.col-lg-2
           +social-circle("email", "images/social/email-circle.png", "//www.mattzaso.com/contact.html", "Email me!")
 
-    // build:js(app/) ../../scripts/main.min.js
+    .footer(style='margin-top:140px;')
+
+    // build:js(app/) scripts/main.min.js
+    script(src="scripts/main.js")
     // endbuild
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     script.

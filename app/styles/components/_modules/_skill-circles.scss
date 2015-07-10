@@ -4,6 +4,65 @@
 *
 **/
 
+.skill-circles-header {
+  text-align: center;
+
+  .filter {
+    cursor: pointer;
+    color: $colorOffwhite;
+    width: 145px;
+    height: 30px;
+    display: inline-block;
+    margin: 0px 8px;
+    border-radius: 15px;
+    text-align: left;
+
+    &.disabled .circle {
+      background-color: $colorOffwhite;
+    }
+
+    &.filter--level-mastery { 
+      background-color: $colorBlue;
+      &.disabled {
+        background-color: $colorLightGray;
+        color: $colorBlue;
+      } 
+    }
+
+    &.filter--level-intermediate { 
+      background-color: $colorTeal; 
+      &.disabled {
+        background-color: $colorLightGray;
+        color: $colorTeal;
+      } 
+    }
+
+    &.filter--level-beginner { 
+      background-color: $colorDarkGray; 
+      &.disabled {
+        background-color: $colorLightGray;
+        color: $colorDarkGray;
+      } 
+    }
+
+    .circle {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: $colorWhite;
+      margin: 4px 0 4px 5px;
+      border-radius: 50%;
+    }
+
+    .text {
+      display: inline-block;
+      padding: 0;
+      margin: 1px 8px;
+      vertical-align: top;
+    }
+  }
+}
+
 .skill-circles {
   position: relative;
   height: 100%;

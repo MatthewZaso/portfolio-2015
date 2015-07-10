@@ -16,3 +16,24 @@ html, body, button {
 body {
   background-color: $colorOffwhite;
 }
+
+.header {
+  .header-title {
+    color: $colorTeal;
+    font-size: $fontXXLarge;
+    margin-bottom: -10px;
+  }
+
+  .header-subtitle {
+    color: $colorBlue;
+    font-size: $fontLarge;
+    margin: 0;
+  }
+}
+
+.footer {
+  background-image: url('/images/photos/golden-gate-bridge.jpg');
+  height: 350px;
+  background-size: cover;
+  background-position-x: 90%;
+}
